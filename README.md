@@ -1,24 +1,50 @@
-# node-js-getting-started
+# WTFSIWRN
+__WTFSIWRN__ is short for _"What the fuck should I watch right now?!"_
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+The goal of this application is to pull data from a various endpoints (IMDB, Netflix, Hulu, Amazon Prime, etc.) and provide a user with a random movie/TV show to watch. (Most of our inspiration comes from our favorite way to pick lunch http://wtfsigte.com/)
 
-This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
 
 ## Running Locally
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
-
-```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
+```
+# clone the repo
+cd wtfsiwrn
+npm install
+npm start
+# navigate to localhost:5000
 ```
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
 
+## [GraphQL](https://learngraphql.com/basics/introduction)
+GraphQL is a REST-replacing new technology introduced by Facebook to alleviate an over-abundance of REST requests from the browser to the service. Though this isn't much of a factor for a browser, it far outshines on mobile platforms. This new technology meshes very well with our prospective frontend -- React by utilizing a Relay. (We need to learn more about all of this. Maybe [here](https://github.com/mhart/simple-relay-starter)?)
+
+### Development
+For the most part I followed [this](https://medium.com/apollo-stack/tutorial-building-a-graphql-server-cddaa023c035#.3fmfe5crg) guide. 
+
+### Playing Around
+Navigate to [localhost:5000/graphql](http://localhost:5000/graphql) run a request with this payload
+
+``` javascript
+{
+  film(id:4) {
+    title,
+    genre,
+    year,
+    director {
+      id,
+      name
+    }
+  }
+}
+```
+You can alter the request by adding and removing fields, and selecting a different id.
+
+
+
+---
+
+__Note:__ I'm going to leave this information here until we actually know what to do with this.
 ## Deploying to Heroku
-
 ```
 $ heroku create
 $ git push heroku master
